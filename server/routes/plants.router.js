@@ -90,6 +90,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
+  console.log('req.params', req.params.id)
   const queryText = `
     DELETE FROM "plants"
       WHERE id=$1

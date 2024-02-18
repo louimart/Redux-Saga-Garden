@@ -27,7 +27,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 // SAGA Generator Functions
 function* getPlantsSaga(action) {
-  console.log('running FIRST Saga', action);
+  // console.log('running FIRST Saga', action);
   // try catch block
   try {
     // code to try running HERE
@@ -50,7 +50,7 @@ function* getPlantsSaga(action) {
 
 // SAGA POST Plants
 function* postPlantsSaga(action) {
-  console.log('running SECOND Saga', action);
+  // console.log('running SECOND Saga', action);
   try {
     yield axios({
       method: 'POST',
@@ -76,14 +76,14 @@ function* postPlantsSaga(action) {
 
 // SAGA DELETE plant
 function* deletePlantSaga(action) {
-  console.log('running #3 SAGA - DELETE plant', action);
+  // console.log('running #3 SAGA - DELETE plant', action.payload);
   try {
     yield axios({
       method: 'DELETE',
       url: `/api/plants/${action.payload}`,
-      data: action.payload,
+      // data: action.payload,
     });
-    yield put({ type: 'DELETE_PLANT' });
+    yield put({ type: 'GET_PLANTS' });
   } catch (error) {
     console.log('ERROR: ', error);
   }

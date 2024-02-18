@@ -8,6 +8,7 @@ function PlantList() {
 
   useEffect(() => {
     // dispatch an action to request the plantList from the API
+    console.log('Louis')
     getPlants();
   }, []);
 
@@ -18,17 +19,17 @@ function PlantList() {
   const handleClickDelete = (id) => {
     dispatch({ type: 'DELETE_PLANT', payload: id});
     // console.log(event.target.name)
-    getPlants();
+    // getPlants();
   }
 
   return (
     <div>
       <h3>This is the plant list</h3>
       {reduxState.map((plant, plantIndex) => {
-        console.log(plant.name);
+        // console.log(plant.name);
         return (
           <div key={plantIndex}>
-            <p>{plant.name} {plant.id}</p>
+            <span>{plant.name}, ID: {plant.id} </span>
             <button onClick={(event) => {handleClickDelete(plant.id)}}>Delete</button>
           </div>
         );
