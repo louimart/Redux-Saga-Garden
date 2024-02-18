@@ -15,6 +15,12 @@ function PlantList() {
     dispatch({ type: 'GET_PLANTS' });
   };
 
+  const handleClickDelete = (id) => {
+    dispatch({ type: 'DELETE_PLANT', payload: id});
+    // console.log(event.target.name)
+    getPlants();
+  }
+
   return (
     <div>
       <h3>This is the plant list</h3>
@@ -22,7 +28,8 @@ function PlantList() {
         console.log(plant.name);
         return (
           <div key={plantIndex}>
-            <p>{plant.name}</p>
+            <p>{plant.name} {plant.id}</p>
+            <button onClick={(event) => {handleClickDelete(plant.id)}}>Delete</button>
           </div>
         );
       })}

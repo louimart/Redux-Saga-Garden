@@ -91,7 +91,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   const queryText = `
-    DELETE FROM "plants" 
+    DELETE FROM "plants"
       WHERE id=$1
   `;
   pool.query(queryText, [req.params.id])
