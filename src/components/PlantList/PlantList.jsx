@@ -29,7 +29,7 @@ function PlantList() {
         // console.log(plant.name);
         return (
           <div key={plantIndex}>
-            <span>{plant.name}, ID: {plant.id} </span>
+            <span>{plant.name} </span>
             <button onClick={(event) => {handleClickDelete(plant.id)}}>Delete</button>
           </div>
         );
